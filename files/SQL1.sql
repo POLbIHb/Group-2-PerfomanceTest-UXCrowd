@@ -18,6 +18,6 @@ delete from part_group_educations where participant_group_id in (select id from 
 delete from part_group_social_statuses where participant_group_id in (select id from participant_group pg where order_id in (select id from orders where orders_type='INTERVIEW'));
 delete from participant_group where id in (select id from orders where orders_type='INTERVIEW');
 delete from participant_group where id in (select id from orders where orders_type='INTERVIEW');
-delete from interview_item
+delete from interview_item;
 delete from customer_orders where id in (select id from orders where orders_type='INTERVIEW');
-delete from orders where orders_type='INTERVIEW'
+delete from orders where orders_type='INTERVIEW';

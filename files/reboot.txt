@@ -1,0 +1,39 @@
+#! /bin/bash
+# Done by Polyakov Mikhail
+# Deprecated
+# Made link to docker-compose.yml at home directory
+# Now you can start and stop containers from home directory
+# Start: docker-compose up -d
+# Stop: docker-compose down
+
+txtblk='\e[0;30m' # Black
+txtred='\e[0;31m' # Red
+txtgrn='\e[0;32m' # Green
+txtylw='\e[0;33m' # Yellow
+txtblu='\e[0;34m' # Blue
+txtpur='\e[0;35m' # Purple
+txtcyn='\e[0;36m' # Cyan
+txtwht='\e[0;37m' # White - regular
+
+
+
+
+echo -e "${txtgrn}Stop containers:${txtwht}"
+docker stop $(docker ps -a -q)
+
+
+echo -e "${txtgrn}Remove containers:${txtwht}"
+docker rm $(docker ps -a -q)
+
+echo -e "${txtgrn}Wait 1 minute${txtwht}"
+sleep 60
+
+echo -e "${txtgrn}Change directory${txtwht}"
+cd /opt/docker/uxcrowd-true-orig
+pwd
+
+echo -e "${txtgrn}Start containers:${txtwht}"
+docker-compose up -d
+
+echo -e "${txtblu}Done!${txtwht}"
+
